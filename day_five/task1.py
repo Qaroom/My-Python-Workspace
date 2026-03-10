@@ -58,7 +58,7 @@
 #         print(number)
 
 import random
-passwrod_list=[]
+password_list=[]
 
 letter=['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 number=[0,1,2,3,4,5,6,7,8,9]
@@ -70,8 +70,22 @@ number_of_number=int(input("How many number do you need in your password:=?"))
 number_of_symbol=int(input("How many symbol do you need in your password:=?"))
 
 for char in  range(1,number_of_letter+1):
-    char_letter=letter[random.randint(0,len(letter))]
-    passwrod_list.append(passwrod_list)
-    letter.remove()
+    char_letter=random.choice(letter)
+    password_list.append(char_letter)
+    letter.remove(char_letter)
 
 
+for sym in  range(1,number_of_symbol+1):
+    sym_letter=random.choice(symbols)
+    password_list.append(sym_letter)
+    symbols.remove(sym_letter)
+
+
+for num in  range(1,number_of_number+1):
+    num_letter=random.choice(number)
+    number.remove(num_letter)
+    password_list.append(str(num_letter))
+    
+random.shuffle(password_list)
+final_password = ''.join(password_list)
+print(f"Your Password is : {final_password}")
