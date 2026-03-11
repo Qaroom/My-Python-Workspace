@@ -2,9 +2,6 @@
 
 # fruits=["Apple","Peach","Pear"]
 
-# # for fruit in range(len(fruits),): 
-# #     print(fruits[fruit])
-# #     print(fruit)
 
 # student_number=30
 
