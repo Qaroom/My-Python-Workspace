@@ -1,5 +1,3 @@
-
-
 offer_dict={}
 offer_values=[]
 offers_name=[]
