@@ -2,11 +2,12 @@ from turtle import Turtle , Screen ,colormode
 import random
 import colorgram
 
-color_list=colorgram.extract('spot_painting.jpg',20)
+color_list=colorgram.extract("My-Python-Workspace\day_eighteen\spot_painting.jpg",20)
 print(type(color_list))
-distance=100
+distance=75
 kom=Turtle()
 kom.shape("turtle")
+print(kom.screen.screensize())
 colormode(255)
 # print(color_list)
 # kom.pencolor(random.choice(color_list).rgb)
@@ -23,9 +24,11 @@ kom.pensize(10)
 # kom.setx(0)
 # kom.sety(kom.ycor()+100)
 kom.penup()
-for _ in range(10):
-    kom.setx(-100)
-    for _ in range(10):
+kom.sety(-370)
+for _ in range(11):
+    kom.setx(-370)
+
+    for _ in range(11):
         kom.pencolor(random.choice(color_list).rgb)
         kom.dot()
         kom.forward(distance)
