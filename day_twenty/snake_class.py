@@ -4,6 +4,7 @@ from turtle import Turtle
 class Snake: 
     def __init__(self):
         self.snake=[]
+        self.direction_list=["right"]
         self.direction="right"
         self.snake_poses=set()
         for x in range(4):
@@ -36,22 +37,30 @@ class Snake:
     def go_up(self):
     
         if self.direction != "down":
-            self.direction = "up"
+            self.direction_list.append("up")
+            # self.direction_update()
+            # self.direction = "up"
 
     def go_down(self):
         
         if self.direction != "up":
-           self.direction = "down"
+           self.direction_list.append("down")
+        #    self.direction_update()
+        #    self.direction = "down"
 
     def go_left(self):
         
         if self.direction != "right":
-            self.direction = "left"
+            self.direction_list.append("left")
+            # self.direction_update()
+            # self.direction = "left"
 
     def go_right(self):
         
         if self.direction != "left":
-            self.direction = "right"
+            self.direction_list.append("right")
+            # self.direction_update()
+            # self.direction = "right"
 
     def new_snake_body(self):
         new_snake_body = Turtle(shape="circle")
@@ -72,4 +81,11 @@ class Snake:
             self.snake[i].goto(x,y)
             if i !=0:
                  self.snake_poses.add((x,y))
+
+    def direction_update(self):
+        if len(self.direction_list) >= 2: 
+            self.direction_list.remove(self.direction)
+            self.direction=self.direction_list[0]
+        else : 
+            self.direciton=self.direction_list[0]
     
