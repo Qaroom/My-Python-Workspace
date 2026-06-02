@@ -16,7 +16,7 @@ class ScoreBoard(Turtle):
 
     def game_over(self):
         self.goto(0,0)
-        self.write("Game over", move=False , align="center",font=("Courier", 24 , "normal"))
+        self.write("Game over", move=False , align="center",font=("Courier", 18 , "normal"))
     
     def refrash_score(self):
         self.score +=1
