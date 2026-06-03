@@ -17,37 +17,29 @@ pong_ball=PongBall()
 score_of_pong=Pong_Score()
 
 computer_wall.set_wall_pose_to_another_side()
-computer_wall.move_walls_down()
-computer_wall.move_walls_down()
-pong_ball.move_pong_ball("CCW")
-pong_ball.second_heading_value=45
+game_speed=50
 def main():
+    global game_speed
     screen.update()
-    
-    pong_ball.move_pong_ball("")
-    check_user_parametre=user_wall.check_distance(pong_ball.update_pose_of_pong())
-    check_computer_parametre=computer_wall.check_distance(pong_ball.update_pose_of_pong())
-    pong_ball.check_pose_of_pong(user_state=check_user_parametre,
-                                 computer_state=check_computer_parametre)
+    pong_ball.move_pong_ball()
     computer_wall.move_wall_auto(pong_ball.update_pose_of_pong())
-    # user_wall.move_wall_auto(pong_ball.update_pose_of_pong())
-
-    if check_user_parametre:
-        score_of_pong.user_score+=1
-        score_of_pong.update_score()
-    elif  check_computer_parametre:
+    if pong_ball.ycor()>=280 or pong_ball.ycor() <=-280:
+        pong_ball.bounce_y()
+    
+    if user_wall.check_distance(pong_ball.update_pose_of_pong()) or computer_wall.check_distance(pong_ball.update_pose_of_pong()) :
+        pong_ball.bounce_x()
+        game_speed = int(game_speed*0.9)
+    
+    if pong_ball.xcor() >=590:
+        game_speed=50
+        pong_ball.goto(0,0)
         score_of_pong.computer_score+=1
+        pong_ball.reset_pong_posetion()
         score_of_pong.update_score()
-    screen.ontimer(main,50)
 
-    if pong_ball.update_pose_of_pong()[0] >=600:
-        score_of_pong.game_over()
-
+    screen.ontimer(main,game_speed)
 
 main()
-# pong_ball.move_pong_ball("CW")
-# pong_ball.move_pong_ball("CW")
-# pong_ball.move_pong_ball("CW")
 screen.listen()
 screen.onkeypress(user_wall.move_walls_up,"w")
 screen.onkeypress(user_wall.move_walls_down,"s")

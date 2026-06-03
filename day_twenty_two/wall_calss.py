@@ -31,13 +31,11 @@ class WallClass:
             return False
         else :
             if self.wall_list[0].distance(distance)>100:
-                print("hi") 
+            
                 self.state_control=False
             return False
     
     def move_wall_auto(self,ball_pose=(0,0)):
-        # for x ,wall in zip(range(2,-3,-1), self.wall_list):
-        #         wall.goto(wall.xcor(),ball_pose[1]+x*20)
         if ball_pose[0]<0:
             for x ,wall in zip(range(2,-3,-1), self.wall_list):
                 wall.goto(wall.xcor(),ball_pose[1]+x*20)
