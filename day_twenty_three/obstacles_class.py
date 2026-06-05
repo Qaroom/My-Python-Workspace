@@ -18,7 +18,7 @@ class Obstacles:
             new_obstacle.setheading(180)
             new_obstacle.shape("square")
             new_obstacle.color(random.choice(self.obstacle_colors))
-            new_obstacle.goto(random.randint(-200,380),38*x)
+            new_obstacle.goto(random.randint(380,750),38*x)
             self.obstacle_list.append(new_obstacle)
 
         
@@ -52,7 +52,7 @@ class Obstacles:
                 new_obstacle.setheading(180)
                 new_obstacle.shape("square")
                 new_obstacle.color(random.choice(self.obstacle_colors))
-                new_obstacle.goto(random.randint(-200,380),random.randint(-200,380))
+                new_obstacle.goto(random.randint(380,750),random.randint(-200,380))
                 self.obstacle_list.append(new_obstacle)
         else : return 
         
